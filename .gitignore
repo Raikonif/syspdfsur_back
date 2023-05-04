@@ -1,0 +1,9 @@
+.vscode
+.fleet
+.idea
+__pycache__/
+Pipfile
+Pipfile.lock
+.env
+migrations/
+venv/
