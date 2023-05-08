@@ -4,7 +4,6 @@ from app.config import Base
 
 class Book(Base):
     __tablename__ = "patient"
-
     id = Column(Integer, primary_key=True)
     name = Column(String)
     last_name = Column(String)
