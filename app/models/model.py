@@ -9,5 +9,3 @@ class Patient(Base):
     last_name = Column(String)
     age = Column(Integer)
     gender = Column(String)
-
-
