@@ -2,7 +2,7 @@ from pydantic import BaseModel
 
 
 class Patient(BaseModel):  # Schema
-    id:int
+    id: int
     name: str
     last_name: str
     age: int
