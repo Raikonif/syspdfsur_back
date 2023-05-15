@@ -9,4 +9,3 @@ DATABASE_URL = f"postgresql://postgres:postgres@localhost:5432/syspdfsur_db"
 engine = create_engine(DATABASE_URL)
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 Base = declarative_base()
-
