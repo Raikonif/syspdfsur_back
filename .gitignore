@@ -6,5 +6,8 @@ Pipfile.lock
 .fleet
 /__pycache__
 /syspdfsur_back/__pycache__
-/syspdfsur_back/migrations/__pycache__
-/syspdf_
+/syspdfsur_back/migrations/__pycache__/
+/admin_app/__pycache__/
+/admin_app/migrations/__pycache__/
+/posts_app/__pycache__/
+/posts_app/migrations/__pycache__/
