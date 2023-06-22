@@ -1,5 +1,0 @@
-/__pycache__
-.env
-/admin_api/__pycache__
-/admin_api/migrations/__pycache__
-/posts_api/migrations/__pycache__

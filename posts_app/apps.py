@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class PostsApiConfig(AppConfig):
+class PostsAppConfig(AppConfig):
     default_auto_field = "django.db.models.BigAutoField"
-    name = "posts_api"
+    name = "posts_app"
