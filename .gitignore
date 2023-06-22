@@ -1,9 +1,10 @@
-.vscode
-.fleet
-.idea
-__pycache__/
 Pipfile
 Pipfile.lock
 .env
-migrations/
-venv/
+.idea
+.vscode
+.fleet
+/__pycache__
+/syspdfsur_back/__pycache__
+/syspdfsur_back/migrations/__pycache__
+/syspdf_
