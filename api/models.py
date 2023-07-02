@@ -11,6 +11,7 @@ class Patient(models.Model):
 
     def __str__(self):
         return f"""
+        PATIENT
         ID: {self.id}
         Name and Last Name: {self.first_name} + " " + {self.last_name}
         Gender: {"Male" if self.gender == 1 else "Female"}
@@ -31,6 +32,7 @@ class Diagnosis(models.Model):
 
     def __str__(self):
         return f"""
+        DIAGNOSIS
         ID: {self.id}
         Patient ID: {self.patient_id}
         Name: {self.name}
@@ -42,6 +44,27 @@ class Diagnosis(models.Model):
         """
 
 
+class SubDiagnosis(models.Model):
+    id = models.BigAutoField(primary_key=True)
+    diagnosis_id = models.BigIntegerField()
+    name = models.CharField(max_length=50)
+
+
+class Histopatology(SubDiagnosis):
+    description = models.CharField(max_length=255)
+    diagnosis = models.CharField(max_length=255)
+
+
+class Citology(SubDiagnosis):
+    type_of_cell = models.CharField(max_length=50)
+    validation = models.SmallIntegerField()
+
+
+class PAP(SubDiagnosis):
+    type_of_result = models.CharField(max_length=50)
+    recept = models.SmallIntegerField()
+
+
 class Medic(models.Model):
     id = models.BigAutoField(primary_key=True)
     first_name = models.CharField(max_length=50)
@@ -49,6 +72,12 @@ class Medic(models.Model):
 
     def __str__(self):
         return f"""
+        MEDIC
         ID: {self.id}
         Name and Last Name: {self.first_name} + " " + {self.last_name}
         """
+
+
+class Post(models.Model):
+    id = models.BigAutoField(primary_key=True)
+    type = models.SmallIntegerField()
