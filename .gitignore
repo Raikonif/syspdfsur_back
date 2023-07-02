@@ -4,10 +4,10 @@ Pipfile.lock
 .idea
 .vscode
 .fleet
-/__pycache__
-/syspdfsur_back/__pycache__
+
+/syspdfsur_back/.env
+/__pycache__/
+/syspdfsur_back/__pycache__/
 /syspdfsur_back/migrations/__pycache__/
-/admin_app/__pycache__/
-/admin_app/migrations/__pycache__/
-/posts_app/__pycache__/
-/posts_app/migrations/__pycache__/
+/api/__pycache__/
+/api/migrations/__pycache__/
