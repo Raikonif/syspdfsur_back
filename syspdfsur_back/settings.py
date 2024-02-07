@@ -29,7 +29,7 @@ load_dotenv()
 # SECRET_KEY = os.getenv("SECRET_KEY")
 SECRET_KEY = env("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
 
@@ -93,8 +93,8 @@ DATABASES = {
 # Render PostgresSQL database
 # Docker container local database
 DATABASES = {
-    "default": dj_database_url.parse(env("RENDER_DATABASE_URL")),
-    "local_db": {
+    # "default": dj_database_url.parse(env("RENDER_DATABASE_URL")),
+    "default": {
         "ENGINE": "django.db.backends.postgresql",
         "NAME": env("COURSE_DB"),
         "USER": env("COURSE_DB_USER"),
