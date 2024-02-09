@@ -11,7 +11,7 @@ class User(models.Model):
 class Author(models.Model):
     mention = models.CharField(max_length=20)
     fullname = models.CharField(max_length=100)
-    email = models.EmailField().unique
+    email = models.EmailField()
     twitter = models.CharField(max_length=40)
     phone = models.CharField(max_length=20)
     facebook = models.CharField(max_length=40)
