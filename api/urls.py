@@ -1,6 +1,6 @@
 from django.urls import path, include
 from rest_framework import routers
-from syspdfsur_back import views
+from api import views
 
 router = routers.DefaultRouter()
 router.register(prefix=r"users", viewset=views.UserView, basename="users")
@@ -9,5 +9,5 @@ router.register(prefix=r"articles", viewset=views.ArticleView, basename="article
 router.register(prefix=r"images", viewset=views.ImageView, basename="images")
 
 urlpatterns = [
-    path("api/", include(router.urls)),
+    path("v1/", include(router.urls)),
 ]
