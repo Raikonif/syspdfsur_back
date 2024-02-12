@@ -29,7 +29,7 @@ load_dotenv()
 # SECRET_KEY = os.getenv("SECRET_KEY")
 SECRET_KEY = env("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ["*"]
 
@@ -42,7 +42,6 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    # "syspdfsur_back",
     "rest_framework",
     "corsheaders",
     "api",

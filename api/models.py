@@ -7,6 +7,9 @@ class User(models.Model):
     role = models.CharField(max_length=15)
     email = models.EmailField().unique
 
+    class Meta:
+        db_table = "users"
+
 
 class Author(models.Model):
     mention = models.CharField(max_length=20)
@@ -16,6 +19,9 @@ class Author(models.Model):
     phone = models.CharField(max_length=20)
     facebook = models.CharField(max_length=40)
 
+    class Meta:
+        db_table = "authors"
+
 
 class Article(models.Model):
     title = models.CharField(max_length=100)
@@ -24,7 +30,13 @@ class Article(models.Model):
     type = models.CharField(max_length=30)
     created_at = models.DateTimeField(auto_now_add=True)
 
+    class Meta:
+        db_table = "articles"
+
 
 class Image(models.Model):
     url = models.CharField(max_length=255)
     article_id = models.ForeignKey(Article, on_delete=models.CASCADE)
+
+    class Meta:
+        db_table = 'images'
