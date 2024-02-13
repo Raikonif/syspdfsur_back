@@ -26,7 +26,7 @@ class Author(models.Model):
 class Article(models.Model):
     title = models.CharField(max_length=100)
     content = models.TextField()
-    author_id = models.ForeignKey(Author, on_delete=models.CASCADE)
+    author = models.ForeignKey(Author, on_delete=models.CASCADE)
     type = models.CharField(max_length=30)
     created_at = models.DateTimeField(auto_now_add=True)
 
@@ -36,7 +36,7 @@ class Article(models.Model):
 
 class Image(models.Model):
     url = models.CharField(max_length=255)
-    article_id = models.ForeignKey(Article, on_delete=models.CASCADE)
+    article = models.ForeignKey(Article, on_delete=models.CASCADE)
 
     class Meta:
         db_table = 'images'
