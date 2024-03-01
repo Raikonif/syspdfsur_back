@@ -1,6 +1,6 @@
-from .models import User, Author, Article, Image
+from .models import User, Author, Article, ArticleSlide
 from rest_framework import viewsets
-from .serializers import UserSerializer, AuthorSerializer, ArticleSerializer, ImageSerializer
+from .serializers import UserSerializer, AuthorSerializer, ArticleSerializer, ArticleSlideSerializer
 
 
 class UserView(viewsets.ModelViewSet):
@@ -18,6 +18,6 @@ class ArticleView(viewsets.ModelViewSet):
     queryset = Article.objects.all()
 
 
-class ImageView(viewsets.ModelViewSet):
-    serializer_class = ImageSerializer
-    queryset = Image.objects.all()
+class ArticleSlideView(viewsets.ModelViewSet):
+    serializer_class = ArticleSlideSerializer
+    queryset = ArticleSlide.objects.all()

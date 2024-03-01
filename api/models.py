@@ -31,7 +31,6 @@ class Author(models.Model):
 
 class Article(models.Model):
     title = models.CharField(max_length=100)
-    content = models.TextField()
     author = models.ForeignKey(Author, on_delete=models.CASCADE)
     type = models.CharField(max_length=30)
     created_at = models.DateField(auto_now_add=True)
@@ -43,12 +42,13 @@ class Article(models.Model):
         db_table = "articles"
 
 
-class Image(models.Model):
+class ArticleSlide(models.Model):
     url = models.CharField(max_length=255)
+    description = models.TextField()
     article = models.ForeignKey(Article, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.url
 
     class Meta:
-        db_table = 'images'
+        db_table = 'articles_slides'

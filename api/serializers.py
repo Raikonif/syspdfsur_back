@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import User, Author, Article, Image
+from .models import User, Author, Article, ArticleSlide
 
 
 class UserSerializer(serializers.ModelSerializer):
@@ -20,7 +20,7 @@ class ArticleSerializer(serializers.ModelSerializer):
         fields = "__all__"
 
 
-class ImageSerializer(serializers.ModelSerializer):
+class ArticleSlideSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Image
+        model = ArticleSlide
         fields = "__all__"
