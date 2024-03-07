@@ -25,7 +25,7 @@ class Author(models.Model):
     facebook = models.CharField(max_length=40)
 
     def __str__(self):
-        return self.mention + " " + self.fullname
+        return self.mention + " " + self.full_name
 
     class Meta:
         db_table = "authors"
