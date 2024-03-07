@@ -29,7 +29,7 @@ load_dotenv()
 # SECRET_KEY = os.getenv("SECRET_KEY")
 SECRET_KEY = env("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
 
@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "rest_framework",
     "corsheaders",
+    'drf_yasg',
     "api",
 ]
 
@@ -91,8 +92,15 @@ DATABASES = {
 '''
 
 # Render PostgresSQL database
+# Docker container local database
 DATABASES = {
-    "default": dj_database_url.parse(env("RENDER_DATABASE_URL"))
+    "default": dj_database_url.parse(env("RENDER_DATABASE_URL")),
+    "demo": {
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": env("COURSE_DB"),
+        "USER": env("COURSE_DB_USER"),
+        "PASSWORD": env("COURSE_DB_PASSWORD")
+    }
 }
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
@@ -133,3 +141,5 @@ MEDIA_URL = "media/"
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+# Cors authorization
+CORS_ALLOWED_ORIGINS = ["http://localhost:5173"]
