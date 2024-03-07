@@ -11,22 +11,27 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 import os
 from pathlib import Path
+
+import dj_database_url
 from dotenv import load_dotenv
+import environ
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+env = environ.Env()
+environ.Env.read_env()
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
 load_dotenv()
-SECRET_KEY = os.getenv("SECRET_KEY")
-
+# SECRET_KEY = os.getenv("SECRET_KEY")
+SECRET_KEY = env("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 # Application definition
 
@@ -39,8 +44,8 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "rest_framework",
     "corsheaders",
-    "admin_app",
-    "posts_app",
+    'drf_yasg',
+    "api",
 ]
 
 MIDDLEWARE = [
@@ -77,13 +82,26 @@ WSGI_APPLICATION = "syspdfsur_back.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
+'''
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.sqlite3",
         "NAME": BASE_DIR / "db.sqlite3",
     }
 }
+'''
 
+# Render PostgresSQL database
+# Docker container local database
+DATABASES = {
+    # "default": dj_database_url.parse(env("RENDER_DATABASE_URL")),
+    "default": {
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": env("COURSE_DB"),
+        "USER": env("COURSE_DB_USER"),
+        "PASSWORD": env("COURSE_DB_PASSWORD")
+    }
+}
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
 
@@ -117,8 +135,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = "static/"
+MEDIA_URL = "media/"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+# Cors authorization
+CORS_ALLOWED_ORIGINS = ["http://localhost:5173"]
