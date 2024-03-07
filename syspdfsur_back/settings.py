@@ -94,8 +94,8 @@ DATABASES = {
 # Render PostgresSQL database
 # Docker container local database
 DATABASES = {
-    # "default": dj_database_url.parse(env("RENDER_DATABASE_URL")),
-    "default": {
+    "default": dj_database_url.parse(env("RENDER_DATABASE_URL")),
+    "demo": {
         "ENGINE": "django.db.backends.postgresql",
         "NAME": env("COURSE_DB"),
         "USER": env("COURSE_DB_USER"),
