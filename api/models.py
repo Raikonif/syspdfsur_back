@@ -16,7 +16,9 @@ class User(models.Model):
 
 class Author(models.Model):
     mention = models.CharField(max_length=20)
-    fullname = models.CharField(max_length=100)
+    full_name = models.CharField(max_length=100)
+    gender = models.CharField(max_length=10)
+    avatar = models.CharField(max_length=255)
     email = models.EmailField()
     twitter = models.CharField(max_length=40)
     phone = models.CharField(max_length=20)
