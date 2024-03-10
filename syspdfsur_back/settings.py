@@ -95,12 +95,12 @@ DATABASES = {
 # Docker container local database
 DATABASES = {
     "default": dj_database_url.parse(env("RENDER_DATABASE_URL")),
-    "demo": {
-        "ENGINE": "django.db.backends.postgresql",
-        "NAME": env("COURSE_DB"),
-        "USER": env("COURSE_DB_USER"),
-        "PASSWORD": env("COURSE_DB_PASSWORD")
-    }
+    # "default": {
+    #     "ENGINE": "django.db.backends.postgresql",
+    #     "NAME": env("COURSE_DB"),
+    #     "USER": env("COURSE_DB_USER"),
+    #     "PASSWORD": env("COURSE_DB_PASSWORD")
+    # }
 }
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
